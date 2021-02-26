@@ -1,8 +1,14 @@
-import React, { PureComponent } from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import Login from '../Login'
+import React from 'react';
+import {
+	View,
+	StyleSheet,
+	Text,
+	TextInput,
+	TouchableOpacity,
+} from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-function Singup({navigation}){
+function Singup(props){
     return(
         <View style={styles.container}>
             <Text style={styles.textTitle}>Create Your Account</Text>
@@ -56,7 +62,10 @@ function Singup({navigation}){
 					>
 					</TextInput>
 				</View>
-				<TouchableOpacity style={styles.button} onPress={() => navigation.navigate("Login")}>Sign Up</TouchableOpacity>
+				<TouchableOpacity style={styles.button}
+				 onPress={() => navigation.navigate("Login")}>
+					 SING UP
+				</TouchableOpacity>
         </View>
     )
 }
@@ -73,7 +82,7 @@ const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: 'bold',
         marginBottom: 50,
-        color: "#ff9999",
+        color: "#ffddba",
     },
     textInputContainer:{
 		paddingHorizontal: 10,
@@ -83,9 +92,12 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 	},
 	textInput: {
-		width: 300,
+		width: 280,
 		height: 40,
-		paddingTop: 10,
+		paddingLeft: 5,
+		marginLeft: 40,
+		borderBottomRightRadius: 10,
+		borderTopRightRadius: 10,
 	},
     icon: {
 		width: 40,
@@ -95,15 +107,14 @@ const styles = StyleSheet.create({
 		left: 12,
 	},
 	button: {
-		fontWeight: "bold",
-		fontSize: 20,
-		color: "#7d7c7b",
-		borderRadius: 7,
-		marginTop: 30,
-		alignItems: "center",
-		justifyContent: "center",
-		width: 320,
+		width: 340,
 		height: 40,
+		borderRadius: 7,
+		justifyContent: 'center',
+		alignItems: 'center',
 		backgroundColor: '#ffddba',
+		fontSize: 18,
+		color: "#7d7c7b",
 	  },
-})
+});
+export default Singup;
