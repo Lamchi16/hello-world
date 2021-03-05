@@ -2,7 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Login from '../screens/Login';
-import Singup from '../screens/Singup';
+import Signup from '../screens/Signup';
+import Myworks from '../screens/Myworks';
 
 const Stack = createStackNavigator();
 
@@ -11,7 +12,8 @@ function HomeScreen() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown:false}}>
           <Stack.Screen name="Login" component={Login} />
-          <Stack.Screen name="Singup" component={Singup}/>
+          <Stack.Screen name="Signup" component={Signup}/>
+          <Stack.Screen name="Myworks" component={Myworks}/>
         </Stack.Navigator>
       </NavigationContainer>
     );
