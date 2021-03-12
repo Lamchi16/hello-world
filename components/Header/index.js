@@ -9,17 +9,25 @@ import {
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 function Header({ title, onBack }) {
+  const checkBackButton = () => {
+    if (onBack === null) {
+      return null;
+    }
+    return (
+      <TouchableOpacity style={styles.backBtn} onPress={onBack}>
+        <FontAwesome5
+          name="arrow-left"
+          size={30}
+          color="black"
+          style={styles.icon}
+        />
+      </TouchableOpacity>
+    );
+  };
   return (
     <SafeAreaView style={styles.safeAreaView}>
       <View style={styles.container}>
-        <TouchableOpacity style={styles.backBtn} onPress={onBack}>
-          <FontAwesome5
-            name="arrow-left"
-            size={30}
-            color="black"
-            style={styles.icon}
-          />
-        </TouchableOpacity>
+        {checkBackButton()}
         <Text style={styles.title}>{title}</Text>
       </View>
     </SafeAreaView>

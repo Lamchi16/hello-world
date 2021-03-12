@@ -8,11 +8,10 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   Keyboard,
-  Alert,
 } from "react-native";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-function Signup(navigation) {
+function Signup({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
@@ -69,12 +68,16 @@ function Signup(navigation) {
             secureTextEntry={true}
           ></TextInput>
         </View>
-        
         <TouchableOpacity
           style={styles.loginButton}
-          onPress={() => navigation.navigate("Login")}
         >
           <Text style={styles.loginButtonTitle}> SING UP </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+            style={styles.textSignUp}
+            onPress={() => navigation.navigate('Login')}
+          >
+            <Text style={styles.textLogin}> Sign in</Text>
         </TouchableOpacity>
       </View>
     </TouchableWithoutFeedback>
@@ -151,6 +154,19 @@ const styles = StyleSheet.create({
     marginRight: 35,
     marginTop: 20,
     marginBottom: 20,
+  },
+  backButton:{
+    marginLeft: 10,
+    marginTop: 10,
+  },
+  backBtn: {
+    position: "absolute",
+
+  },
+  textSignUp: {
+    color: "blue",
+    textDecorationLine: "underline",
+    fontSize: 20,
   },
 });
 export default Signup;

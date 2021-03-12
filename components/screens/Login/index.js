@@ -71,7 +71,7 @@ function Login({ navigation }) {
             ></TextInput>
           </View>
           <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginButtonTitle}> LOGIN </Text>
+            <Text style={styles.loginButtonTitle}> SIGN IN </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={styles.textSignUp}

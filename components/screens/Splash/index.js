@@ -8,28 +8,32 @@ function Splash({navigation}) {
     return(
         <View style={styles.container}>
             <View style={styles.logoSplash}>
-                <Image style={styles.logo} 
-                source={require("../../img/splash.png")}
+                <Image style={styles.logo}
+                source={require("../../img/logo.png")}
                 >
                 </Image>
             </View>
-            <Text style={styles.title}>Smart Notes</Text>
+
         </View>
     )
 }
 const styles = StyleSheet.create({
 container:{
     flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     backgroundColor:"#ffddba",
-    flexDirection: 'column'
 },
 logoSplash:{
     alignItems: 'center',
     justifyContent: 'center',
 },
 logo:{
-    width: 128,
-    height: 50,
+    
+    resizeMode: "contain",
+    width: 500,
+    height: 100,
 },
 title:{
     fontSize: 15,
