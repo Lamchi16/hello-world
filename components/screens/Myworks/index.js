@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet } from "react-native";
 import Item from "./Item";
 import Header from "../../Header/index";
 import  ApplicationStyles  from "../../Themes/ApplicationStyles";
-import Context from "../Context";
+import Context from '../../Context';
 import  Myworks  from "../../services/Myworks";
 
 
@@ -11,7 +11,7 @@ function Mywork({ navigation }) {
 	const [context, setContext] = useContext(Context);
 
 	useEffect(() => {
-		setContext([...Myworks]);
+		setContext([...Myworks])
 	}, []);
 
 	return (

@@ -12,7 +12,7 @@ import Context from "../Context";
 function Detail({route }) {
 	const { idMywork } = route.params;
 	const [work, setWork] = useState({});
-	const [context, setConText] = useContext(Context);
+	const [context, setContext] = useContext(Context);
 	const navigation = useNavigation();
 	useEffect(() => {
 		const work = context.find(

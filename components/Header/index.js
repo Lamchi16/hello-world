@@ -1,68 +1,84 @@
+
 import React from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
+	View,
+	Text,
+	StyleSheet,
+	SafeAreaView,
+	TouchableOpacity,
 } from "react-native";
-import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
-function Header({ title, onBack }) {
-  const checkBackButton = () => {
-    if (onBack === null) {
-      return null;
-    }
-    return (
-      <TouchableOpacity style={styles.backBtn} onPress={onBack}>
-        <FontAwesome5
-          name="arrow-left"
-          size={30}
-          color="black"
-          style={styles.icon}
-        />
-      </TouchableOpacity>
-    );
-  };
-  return (
-    <SafeAreaView style={styles.safeAreaView}>
-      <View style={styles.container}>
-        {checkBackButton()}
-        <Text style={styles.title}>{title}</Text>
-      </View>
-    </SafeAreaView>
-  );
+function Header({
+	label,
+	goBack,
+	rightButton,
+	rightComponent,
+}) {
+	return (
+		<SafeAreaView>
+			<View style={styles.container}>
+				{goBack && (
+					<TouchableOpacity
+						onPress={goBack}
+						style={styles.back}>
+						<Text style={styles.backBtn}>Back</Text>
+					</TouchableOpacity>
+				)}
+
+				<Text style={styles.header} numberOfLines={1}>
+					{label}
+				</Text>
+
+				{rightButton && (
+					<TouchableOpacity
+						onPress={rightButton}
+						style={styles.right}>
+						<Text style={styles.btnAdd}>Add</Text>
+					</TouchableOpacity>
+				)}
+			</View>
+		</SafeAreaView>
+	);
 }
 
 Header.defaultProps = {
-  title: "Header",
-  onBack: null
+	label: "Header",
+	goBack: null,
+	rightButton: null,
 };
 
 const styles = StyleSheet.create({
-  safeAreaView: {
-    backgroundColor: "#fff",
-  },
-  container: {
-    width: "100%",
-    height: 60,
-    backgroundColor: "#ffddba",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  title: {
-    fontSize: 30,
-    fontWeight: "bold",
-  },
-  backBtn: {
-    position: "absolute",
-    top: 20,
-    left: 20,
-  },
-  backText: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});
+	container: {
+		height: 60,
+		flexDirection: "row",
+		justifyContent: "center",
+		alignItems: "center",
+		borderBottomColor: "rgba(0,0,0,.1)",
+		borderBottomWidth: 1,
 
+		marginTop: 20,
+	},
+	header: {
+		fontSize: 25,
+		fontWeight: "bold",
+		marginHorizontal: 60,
+	},
+	back: {
+		position: "absolute",
+		left: 15,
+	},
+	right: {
+		position: "absolute",
+		right: 15,
+		
+	},
+	btnAdd:{
+		fontSize: 20,
+		fontWeight: "bold",
+	},
+	backBtn: {
+		fontSize: 20,
+		fontWeight: "bold",
+	},
+});
 export default Header;

@@ -28,10 +28,10 @@ ItemInputWork.defaultProps = {
   index: -1,
 };
 function AddWork(props) {
+  const [context, setContext] = useContext(Context);
   const [title, setTitle] = useState("");
   const [listWork, setListWork] = useState([]);
   const navigation = useNavigation();
-  const [context, setContext] = useContext(Context);
 
   const handleAdd = () => {
     if (!title.trim()) {
@@ -57,7 +57,7 @@ function AddWork(props) {
         time: currentTime,
       },
     ]);
-    navigation.navigate("Myworks");
+    navigation.navigate("Mywork");
   };
 
   const handleAddItemWork = () => {
