@@ -1,25 +1,35 @@
-import React from "react";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import React from "react";
+
 import Login from "../screens/Login";
 import Signup from "../screens/Signup";
-import Myworks from "../screens/Myworks";
-import Splash from "../screens/Splash";
+import Mywork from "../screens/Myworks";
 import Detail from "../screens/Detail";
-
+import InputWorks from "../screens/InputWorks";
 const Stack = createStackNavigator();
 
-function HomeScreen() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="Signup" component={Signup} />
-        <Stack.Screen name="Myworks" component={Myworks} />
-        <Stack.Screen name="Detail" component={Detail} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+function RootNavigation() {
+	return (
+		<NavigationContainer>
+			<Stack.Navigator
+				screenOptions={{ headerShown: false }}>
+				<Stack.Screen name='Login' component={Login} />
+				<Stack.Screen name='Mywork' component={Mywork} />
 
-export default HomeScreen;
+				<Stack.Screen
+					name='Signup'
+					component={Signup}
+				/>
+
+				<Stack.Screen
+					name='Detail'
+					component={Detail}
+				/>
+				<Stack.Screen name='InputWorks' component={InputWorks} />
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
+}
+export default RootNavigation;

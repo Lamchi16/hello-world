@@ -36,6 +36,7 @@ function Header({ title, onBack }) {
 
 Header.defaultProps = {
   title: "Header",
+  onBack: null
 };
 
 const styles = StyleSheet.create({

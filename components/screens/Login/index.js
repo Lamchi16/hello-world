@@ -27,7 +27,7 @@ function Login({ navigation }) {
     if (username !== User.username || password !== User.password) {
       return Alert.alert("Email or Password incorrect !");
     }
-    navigation.navigate("Myworks");
+    navigation.navigate("Mywork");
   };
 
   return (
