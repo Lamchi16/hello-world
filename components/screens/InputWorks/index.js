@@ -22,16 +22,20 @@ function ItemInputWork({ value, onChange, index }) {
     ></TextInput>
   );
 }
+
 ItemInputWork.defaultProps = {
-  value: "",
+  value: '',
   onChange: () => {},
   index: -1,
 };
+
 function AddWork(props) {
-  const [context, setContext] = useContext(Context);
-  const [title, setTitle] = useState("");
+  const temp = useContext([]);
+  const [title, setTitle] = useState('');
   const [listWork, setListWork] = useState([]);
   const navigation = useNavigation();
+
+  console.log('TEMP', temp);
 
   const handleAdd = () => {
     if (!title.trim()) {
@@ -48,21 +52,22 @@ function AddWork(props) {
     const currentTime = `${time.getHours()}:${time.getMinutes()} ${time.getDate()}/${
       time.getMonth() + 1
     }/${time.getFullYear()}`;
-    setContext((state) => [
-      ...state,
-      {
-        id: context.length + 1,
-        name: title,
-        content: listWork,
-        time: currentTime,
-      },
-    ]);
+
+    //  setContext((state) => [
+    //   ...state,
+    //   {
+    //     id: context.length + 1,
+    //     name: title,
+    //     content: listWork,
+    //     time: currentTime,
+    //   },
+    // ]);
     navigation.navigate("Mywork");
   };
 
   const handleAddItemWork = () => {
     setListWork((state) => {
-      return [...state, ""];
+      return [...state, ''];
     });
   };
 
@@ -108,9 +113,11 @@ function AddWork(props) {
   return (
     <View style={ApplicationStyles.screen.container}>
       <Header
-        goBack={() => navigation.goBack()}
-
+        goBack={() => navigation.navigation.navigate('Mywork')}
+        label = 'New Work'
+        rightButton = {() => navigation.navigate('Detail')}
       ></Header>
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Text style={styles.header}>Name of work</Text>
@@ -207,7 +214,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center'
   },
-  inputTodo: {
+  inputWork: {
       marginTop: 10
   }
 });

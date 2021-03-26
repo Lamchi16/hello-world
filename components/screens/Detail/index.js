@@ -10,16 +10,19 @@ import ApplicationStyles from "../../Themes/ApplicationStyles";
 import Context from "../Context";
 
 function Detail({route }) {
+
 	const { idMywork } = route.params;
 	const [work, setWork] = useState({});
-	const [context, setContext] = useContext(Context);
+	const temp = useContext([]);
 	const navigation = useNavigation();
-	useEffect(() => {
-		const work = context.find(
-			(item) => item.id === idMywork.id
-		);
-		setWork(work);
-	}, []);
+	// useEffect(() => {
+	// 	const work = context.find(
+	// 		(item) => item.id === idMywork.id
+	// 	);
+	// 	setWork(work);
+	// }, []);
+	console.log('TEMP', temp);
+
 	return (
 		<View style={ApplicationStyles.screen.container}>
 			<Header
